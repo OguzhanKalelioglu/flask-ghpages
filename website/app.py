@@ -1,14 +1,14 @@
-import flask
+from flask import Flask, render_template , request
 
 __all__ = ["create_app"]
 
 
 def create_app():
-    app = flask.Flask(__name__)
+    app = Flask(__name__)
     app.config.from_pyfile('settings.py')
 
     @app.route("/")
     def index():
-        return "hello world"
+         return render_template('index.html')
 
     return app
